@@ -13,19 +13,19 @@ int _putchar(char c)
 	static int contador;
 	static char buffer[1024];
 
-	if (ch == -1)
+	if (c == -1)
 	{
 		contador = 0;
 		return (0);
 	}
-	if (ch == -2 || contador == 1024)
+	if (c == -2 || contador == 1024)
 	{
 		write(1, buffer, contador);
 		contador = 0;
 	}
-	if (ch != -1 && ch != -2)
+	if (c != -1 && c != -2)
 	{
-		buffer[contador] = ch;
+		buffer[contador] = c;
 		contador++;
 		return (1);
 	}
