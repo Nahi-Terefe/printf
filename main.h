@@ -1,34 +1,37 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include <stdarg.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 /**
- * struct Pf_func - format
- * _printf- print function
- * @op: pointer
- * @f: function pointer
-*/
-typedef struct Pf_func
+ * struct structprint - structure containing
+ * @q: the location and method to translate data to characters.
+ * @u: print function for specific type.
+ *
+ * Return: int
+ */
+typedef struct structprint
 {
-	char *op;
-	int (*f)(va_list);
-} print_fun;
+	char *q;
+	int (*u)(char *format, va_list);
+} structype;
 
-int _printf(const char *format, ...);
-int _putchar(char c);
-int _strcmp(char *s1, char *s2);
-int (*get_op_func(const char *s, int pos))(va_list);
-int _pow_recursion(int x, int y);
-int print_single_char(va_list c);
-int print_string_char(va_list s);
-int print_int(va_list i);
-int print_dec(va_list d);
-int print_decimal(va_list d);
-int the_range(unsigned int n);
+int _putchar(char ch);
+int _puts(char *string);
+int printc(char *format, va_list);
+int printstr(char *format, va_list);
+int (*driver(char *format))(char *format, va_list);
+int _printf(char *format, ...);
+int printint(char *format, va_list pa);
+int integer(int number);
+int contadordigit(int number);
+int _abs(int number);
+int printpercent(char *format, va_list pa);
+int printhex(char *format, va_list);
+int printHEX(char *format, va_list);
+int printocta(char *format, va_list);
+int print_unsign(char *format, va_list);
 
 #endif /* MAIN_H */
