@@ -33,5 +33,8 @@ int printhex(char *format, va_list);
 int printHEX(char *format, va_list);
 int printocta(char *format, va_list);
 int print_unsign(char *format, va_list);
+int print_usignedint(char *format, va_list pa);
+int int_count(unsigned int number);
+int digit_count(unsigned int number);
 
 #endif /* MAIN_H */
