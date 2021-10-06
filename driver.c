@@ -22,6 +22,7 @@ int (*driver(char *format))(char *format, va_list)
 		{"%x", printhex},
 		{"%X", printHEX},
 		{"%o", printocta},
+		{"%p", printhex},
 		{NULL, NULL}};
 
 	if (format[1] == ' ' || format[1] == '\0')
