@@ -17,7 +17,7 @@ int (*driver(char *format))(char *format, va_list)
 		{"%s", printstr},
 		{"%d", printint},
 		{"%i", printint},
-		{"%u", printint},
+		{"%u", print_usignedint},
 		{"%%", printpercent},
 		{"%x", printhex},
 		{"%X", printHEX},
