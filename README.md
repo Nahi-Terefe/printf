@@ -147,11 +147,6 @@ Handle the following conversion specifiers:
 * You don’t have to handle the length modifiers
 ##### REPO: GitHub repository: printf
 #
-### 2. Just because it's in print doesn't mean it's the gospel
-#### Create a man page for your function.
-##### REPO: GitHub repository: printf
-##### File: man_3_printf
-#
 ### Authors
 
 * [Nahom Terefe](https://github.com/Nahi-Terefe)
