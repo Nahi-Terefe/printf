@@ -154,5 +154,5 @@ Handle the following conversion specifiers:
 #
 ### Authors
 
-* [Nahom Terefe](nahi.terefe@gmail.com)
-* [Elisyas Fesha](nahi.terefe@gmail.com)
+* [Nahom Terefe](https://github.com/Nahi-Terefe)
+* [Elisyas Fesha](https://github.com/malu17)
