@@ -1,158 +1,104 @@
-# 0x11. C - printf
-Foundations - Low-level programming & Algorithm ― Hatching out
-by Julien Barbier, co-founder at Holberton School.
-Project to be done in teams of 2 people (your team: Cristhiam Camilo Baquero Gomez, Camilo Bayona Orduz)
+> # 0x11. C - printf
+---
+> ## Authorized functions and macros
+* `write (man 2 write)`
+* `malloc (man 3 malloc)`
+* `free (man 3 free)`
+* `va_start (man 3 va_start)`
+* `va_end (man 3 va_end)`
+* `va_copy (man 3 va_copy)`
+* `va_arg (man 3 va_arg)`
+---
+> ### Introduction
 
-## Background Context
-* Write your own `printf` function.
+Project in which the operation of the printf `(_printf)` is simulated, which receives `string`, `single char`, `integer`, `decimals`, and the character percentage `(%)`
 
-## Getting Started
+> ### Documentation
 
-* Allowed editors: vi, vim, emacs.
-* All your files will be compiled on Ubuntu 14.04 LTS.
-* Your programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic.
-* All your files should end with a new line.
-* A README.md file, at the root of the folder of the project is mandatory.
-* Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl.
-* You are not allowed to use global variables.
-* No more than 5 functions per file.
-* In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples.
-* The prototypes of all your functions should be included in your header file called holberton.h
-* Don’t forget to push your header file.
-* All your header files should be include guarded.
-* Note that we will not provide the\_putchar function for this project
+To use this function that simulates the printf, you must clone the repository `[printf](https://github.com/ch-canaza/printf)` to the repository where you are working, and you must include the contents of the folder holberton.h in your folder.h
 
-### More Info
-## Authorized functions and macros
-* write (man 2 write)
-* malloc (man 3 malloc)
-* free (man 3 free)
-* va_start (man 3 va_start)
-* va_end (man 3 va_end)
-* va_copy (man 3 va_copy)
-* va_arg (man 3 va_arg)
+A formatted output conversion C program completed as part of the low-level programming and algorithm track at ALX. The program is a pseudo- recreation of the C standard library function, printf.
 
-## Compilation
-* Your code will be compiled this way:
-```
-$ gcc -Wall -Werror -Wextra -pedantic *.c
-```
-* As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
-Our main files will include your main header file (holberton.h): #include holberton.h
-You might want to look at the gcc flag -Wno-format when testing with your /_printf and the standard printf. Example of test file that you could use:
-```
-alex@ubuntu:~/c/printf$ cat main.c 
-#include <limits.h>
-#include <stdio.h>
-#include "holberton.h"
+> #### Synopsis
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-    int len;
-    int len2;
-    unsigned int ui;
-    void *addr;
+This repository holds all the code necessary for our custom _printf function to run. Our mini-version currently handles conversion specifiers: c, s, %, d, i, b, o and does not yet support field width, precision, flag characters, or length modifiers. Unique to our _printf is our r reverse conversion and the R rot13 conversion. In essence, you can print any character, string, integer, or decimal number, reverse your strings, transform any number to binary and octal bases, and encrypt your string with rot13 encryption.
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned octal:[%o]\n", ui);
-    printf("Unsigned octal:[%o]\n", ui);
-    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    _printf("Address:[%p]\n", addr);
-    printf("Address:[%p]\n", addr);
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");
-    return (0);
-}
-alex@ubuntu:~/c/printf$ gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c
-alex@ubuntu:~/c/printf$ ./printf
-Let's try to printf a simple sentence.
-Let's try to printf a simple sentence.
-Length:[39, 39]
-Length:[39, 39]
-Negative:[-762534]
-Negative:[-762534]
-Unsigned:[2147484671]
-Unsigned:[2147484671]
-Unsigned octal:[20000001777]
-Unsigned octal:[20000001777]
-Unsigned hexadecimal:[800003ff, 800003FF]
-Unsigned hexadecimal:[800003ff, 800003FF]
-Character:[H]
-Character:[H]
-String:[I am a string !]
-String:[I am a string !]
-Address:[0x7ffe637541f0]
-Address:[0x7ffe637541f0]
-Percent:[%]
-Percent:[%]
-Len:[12]
-Len:[12]
-Unknown:[%r]
-Unknown:[%r]
-alex@ubuntu:~/c/printf$
-```
-* We strongly encourage you to work all together on a set of tests
-* If the task does not specify what to do with an edge case, do the same as printf
+#### Syntax:
+ * _printf(<format string>, args...)
 
-## Workshop Development
-## Tasks
+> ### Extra information
 
+gcc -c \*.c
+ar rcs libprintf.a \*.o
+After this, copy the resulting printf.a file and printf.h to your project directory. Include printf.h where appropriate in your source files. Then using GCC as an example, when compiling add the -l flag with the library file name like so:
+
+gcc <your stuff here> libprintf.a
+Usage Examples
+The simplest example is just printing out a string literal as the format string, like so:
+
+#### _printf("Hello printf!");
+This will output the text "Hello printf!" to the terminal, like so:
+
+#### Hello printf!
+Rountinely, you will want to use printf to print out strings from variables or numbers. We can take in variables passed as further arguments by using %, then flags (optional), then a specifier for the type of thing we are printing. If we have an integer and a string, we will use %d and %s respectively, like so:
+
+char str[] = "world";
+int number = 42;
+_printf("Hello %s %d!", str, number);
+We will get the output:
+### What’s Included?
+|file|description| 
+|----|-----------|
+|  `_printf.c`  | simulates original printf | 
+|  `_putchar.c` | simulates original putchar | 
+|  `driver.c`  | contains functions caller for the printf | 
+| `main.h` | contains prototypes and libraries| 
+|  `printc.c`  | prints character | 
+|  `printhex.c` | prints hexadecimal | 
+|  `printint.c`  | prints integer | 
+| `printocta.c` | prints ocatal number |
+| `printpercent.c` | prints % char |
+| `printstr.c` | calles _puts.c to print a string format | 
+| `_puts.c` | prints string char |
+
+---
+> ### Compilation
+the code will be compiled this way:
+`gcc -Wall -Wextra -Werror -pedantic -Wno-format *.c`
+* As a consequence, be careful not to push any c file containing a `main` function in the root directory of * * your project (you could have a test folder containing all your `tests` files including `main` functions)
+* Our main files will include your main header file (`holberton.h`): `#include holberton.h`
+* You might want to look at the gcc flag `-Wno-format` when testing with your `_printf` and the standard `printf`.
+---
 ### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
-#### Write a function that produces output according to a format.
-* Prototype: int /_printf(const char *format, ...);
+function that produces output according to a format.
+* Prototype: `int _printf(const char *format, ...)`;
 * Returns: the number of characters printed (excluding the null byte used to end output to strings)
 * write output to stdout, the standard output stream
-* format is a character string. The format string is composed of zero or more directives. See man 3 printf for more detail. You need to handle the following conversion specifiers:
-* * c
-* * s
-* * %
+* `format` is a character string. The format string is composed of zero or more directives. See man 3 `printf`
+* for more detail. You need to handle the following conversion specifiers:
+  * `c`
+  * `s`
+  * `%`
 * You don’t have to reproduce the buffer handling of the C library printf function
 * You don’t have to handle the flag characters
 * You don’t have to handle field width
 * You don’t have to handle precision
 * You don’t have to handle the length modifiers
-##### REPO: GitHub repository: printf
-#
 ### 1. Education is when you read the fine print. Experience is what you get if you don't
-#### Write a function that prints numbers, followed by a new line.
 Handle the following conversion specifiers:
-* d
-* i
+
+* `d`
+* `i`
 * You don’t have to handle the flag characters
 * You don’t have to handle field width
 * You don’t have to handle precision
 * You don’t have to handle the length modifiers
-##### REPO: GitHub repository: printf
-#
 ### 2. Just because it's in print doesn't mean it's the gospel
-#### Create a man page for your function.
-##### REPO: GitHub repository: printf
-##### File: man_3_printf
-#
-### Authors
+
+Create a man page for your function.
+
+---
+> ## Contact 💬
 
 * [Nahom Terefe](https://github.com/Nahi-Terefe)
 * [Elisyas Fesha](https://github.com/malu17)
