@@ -1,4 +1,4 @@
-> # 0x11. C - printf
+> # _printf
 ---
 > ## Authorized functions and macros
 * `write (man 2 write)`
@@ -46,7 +46,7 @@ char str[] = "world";
 int number = 42;
 _printf("Hello %s %d!", str, number);
 We will get the output:
-### What’s Included?
+>### What’s Included?
 |file|description| 
 |----|-----------|
 |  `_printf.c`  | simulates original printf | 
@@ -69,7 +69,7 @@ the code will be compiled this way:
 * Our main files will include your main header file (`holberton.h`): `#include holberton.h`
 * You might want to look at the gcc flag `-Wno-format` when testing with your `_printf` and the standard `printf`.
 ---
-### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
+>### 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 function that produces output according to a format.
 * Prototype: `int _printf(const char *format, ...)`;
 * Returns: the number of characters printed (excluding the null byte used to end output to strings)
@@ -84,7 +84,7 @@ function that produces output according to a format.
 * You don’t have to handle field width
 * You don’t have to handle precision
 * You don’t have to handle the length modifiers
-### 1. Education is when you read the fine print. Experience is what you get if you don't
+>### 1. Education is when you read the fine print. Experience is what you get if you don't
 Handle the following conversion specifiers:
 
 * `d`
@@ -93,7 +93,7 @@ Handle the following conversion specifiers:
 * You don’t have to handle field width
 * You don’t have to handle precision
 * You don’t have to handle the length modifiers
-### 2. Just because it's in print doesn't mean it's the gospel
+>### 2. Just because it's in print doesn't mean it's the gospel
 
 Create a man page for your function.
 
